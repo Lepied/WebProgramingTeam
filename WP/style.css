@@ -9,7 +9,7 @@ body{
   
   display: flex;
   align-items: center;
-  padding: 0 100px;
+  padding: 0 50px;
 
   min-height: 100vh;
   background: #ffffff;
@@ -83,7 +83,7 @@ body{
 .memo{
   margin-left : 200px;
   margin-right : 100px;
-  width : 60%;
+  width : 50%;
   background: #fff;
   border-radius: 10px;
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
@@ -174,4 +174,49 @@ header .current-date{
 }
 .days li:not(.active):hover::before{
   background: #f2f2f2;
+}
+
+.mypage-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.left-menu {
+  
+  width: 200px;
+  flex-direction: column;
+  
+}
+.border{
+  margin-right: 10px;
+  width : 1px ;
+  height: 60vw;
+  border: 1px solid #696969;
+}
+.left-menu ul{
+  list-style: none;
+  padding: auto;
+  margin : auto;
+}
+
+.left-menu p{
+  margin-bottom: 20px;
+}
+
+.menu-main{
+  width: 100%;
+  text-align: center;
+ 
+}
+.menu-main h3 {
+  font-size: 18px;
+  margin: 0;
+  padding: 0;
+}
+
+.menu-main p {
+  font-size: 16px;
+  margin: 0;
+  padding: 0;
 }
