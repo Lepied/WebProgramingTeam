@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendar Website</title>
+    <style>
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+            text-align: center;
+        }
+
+        header {
+            background-color: #1a73e8;
+            color: #fff;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        #home-btn, #login-btn {
+            background-color: #fff;
+            color: #1a73e8;
+            padding: 10px 15px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+
+        #login-btn {
+            background-color: #fff;
+            color: #1a73e8;
+        }
+
+        #calendar {
+            max-width: 600px;
+            margin: 20px auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+
+        th {
+            background-color: #1a73e8;
+            color: #fff;
+        }
+
+        td {
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        td:hover {
+            background-color: #e1f5fe;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a id="home-btn" href="#">Home</a>
+        <h1>Calendar Website</h1>
+        <a id="login-btn" href="#">Login</a>
+    </header>
+
+    <div id="calendar"></div>
+
+    <script>
+        function generateCalendar(year, month) {
+            const calendarElement = document.getElementById('calendar');
+            const daysInMonth = new Date(year, month + 1, 0).getDate();
+            const firstDayOfMonth = new Date(year, month, 1).getDay();
+
+            let html = `<table>
+                            <thead>
+                                <tr>
+                                    <th>Sun</th>
+                                    <th>Mon</th>
+                                    <th>Tue</th>
+                                    <th>Wed</th>
+                                    <th>Thu</th>
+                                    <th>Fri</th>
+                                    <th>Sat</th>
+                                </tr>
+                            </thead>
+                            <tbody>`;
+
+            let dayCounter = 1;
+
+            for (let i = 0; i < 6; i++) {
+                html += '<tr>';
+
+                for (let j = 0; j < 7; j++) {
+                    if (i === 0 && j < firstDayOfMonth) {
+                        html += '<td></td>';
+                    } else if (dayCounter <= daysInMonth) {
+                        html += `<td>${dayCounter}</td>`;
+                        dayCounter++;
+                    } else {
+                        html += '<td></td>';
+                    }
+                }
+
+                html += '</tr>';
+            }
+
+            html += `</tbody>
+                    </table>`;
+
+            calendarElement.innerHTML = html;
+
+            // Add click event listeners to each day
+            const dayElements = calendarElement.querySelectorAll('td');
+            dayElements.forEach(day => {
+                if (day.textContent !== '') {
+                    day.addEventListener('click', () => {
+                        alert(`Clicked on day ${day.textContent}`);
+                    });
+                }
+            });
+        }
+
+        // Example: Generate calendar for the current month
+        const currentDate = new Date();
+        generateCalendar(currentDate.getFullYear(), currentDate.getMonth());
+    </script>
+    <footer>
+        &copy; 2023 November Calender
+    </footer>
+</body>
+</html>
