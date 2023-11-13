@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>회원가입</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            padding: 50px;
+        }
+
+        #login-form {
+            max-width: 300px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            text-align: left;
+            margin: 10px 0;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"], .login-button {
+            background-color: #007BFF;
+            color: #fff;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>회원가입</h1>
+    <div id="login-form">
+        <form action="process_login.php" method="POST">
+            <label for="email">이메일:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="password">비밀번호:</label>
+            <input type="password" id="password" name="password" required>
+
+            <input type="submit" value="시작하기">
+        </form>
+        <p style="font-size:10px">다음으로 진행하여 이용약관,개인정보 보호정책 동의합니다.</p>    
+                <a href="https://accounts.google.com/"> <!-- Google 로그인 버튼 -->
+            <button class="login-button">Google로 로그인</button>
+        </a>
+        <a href="https://login.live.com/"> <!-- Microsoft 로그인 버튼 -->
+            <button class="login-button">Microsoft로 로그인</button>
+        </a>
+    </div>
+    <p><p>계정이 이미 있나요? <a class="signup-link" href="로그인.html">로그인</a></p></p>
+</body>
+</html>

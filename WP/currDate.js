@@ -45,3 +45,15 @@ prevNextIcon.forEach(icon => {
         renderCalendar(); 
     });
 });
+
+document.addEventListener('DOMContentLoaded', function () {
+    document.getElementById('button1').addEventListener('click', function () {
+        alert('로그아웃 되었습니다.');
+        window.location.href = '로그인.html'; 
+      
+    });
+
+    document.getElementById('button2').addEventListener('click', function () {
+        window.location.href = 'mypage.html'; 
+    });
+});
